@@ -2,8 +2,14 @@ package org.droidstrap.view;
 
 import java.util.List;
 
-import principal.ApplicationData;
+import net.eunainter.r2std2oid.ResponseR2D2;
+import net.eunainter.r2std2oid.RestObserver;
+import net.eunainter.r2std2oid.Skyrunner;
+
 import org.droidstrap.R;
+import org.droidstrap.fragments.Fragment_MenuList;
+
+import principal.ApplicationData;
 import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -16,12 +22,11 @@ import com.actionbarsherlock.view.Window;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
-import org.droidstrap.fragments.Fragment_MenuList;
-
-public class BaseActivity extends SlidingFragmentActivity {
+public class BaseActivity extends SlidingFragmentActivity implements RestObserver {
 
 	protected	SlidingMenu slidingMenu ;
 	protected 	ListFragment mFrag;
+	protected	Skyrunner mSky;
 
 	public static	ApplicationData mAppdata;
 
@@ -39,6 +44,8 @@ public class BaseActivity extends SlidingFragmentActivity {
 			//		this.mAppdata.setSharedPreferences(this);
 		}
 
+		mSky = new Skyrunner(this);
+		
 		//		setTitle(mTitleRes);
 
 		// set the Behind View
@@ -120,6 +127,24 @@ public class BaseActivity extends SlidingFragmentActivity {
 		ab.setIcon(R.drawable.ic_action_gota);
 		 */
 		//		ab.setDisplayShowHomeEnabled(true);	
+	}
+
+	@Override
+	public void receivedResponse(ResponseR2D2 response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void startConnecting() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void endConnecting() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
